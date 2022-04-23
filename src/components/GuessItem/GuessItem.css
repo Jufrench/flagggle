@@ -1,0 +1,25 @@
+.guess-item {
+    display: flex;
+}
+
+.guess-item-col {
+    border: 2px solid dodgerblue;
+    padding: 4px 10px;
+    color: #fff;
+    background-color: #272b31;
+}
+
+.guess-item-col.name {
+    flex-grow: 1;
+}
+
+.guess-item-col + .guess-item-col {
+    margin-left: 4px;
+}
+
+.empty-row:after {
+    display: block;
+    padding-bottom: 31px;
+    content: '';
+    background-color: #272b31;
+}
