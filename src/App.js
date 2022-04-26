@@ -1,16 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-
 import React, { useEffect, useState } from 'react';
 import * as CountriesAPI from './CountriesAPI.js'
 import DailyFlag from './components/DailyFlag/DailyFlag';
 import GuessesList from './components/GuessesList/GuessesList';
 import Form from './components/Form/Form';
-import CountrySelect from './components/CountrySelect/CountrySelect';
-import SubmitGuess from './components/SubmitGuess/SubmitGuess'
 import Share from './components/Share/Share'
 import Box from '@mui/material/Box';
-import useUpdateGuessesList from './hooksAPI'
 import Modal from '@mui/material/Modal';
 
 function App() {
@@ -35,6 +30,8 @@ function App() {
     useEffect(() => {
         setFlagOfTheDay(flagsData[randomNumber])
     })
+
+    console.log('%cguessesList', 'color:dodgerblue', guessesList)
 
     return (
         <div className="App">

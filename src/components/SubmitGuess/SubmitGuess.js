@@ -11,7 +11,6 @@ export default function SubmitGuess(props) {
     const [stepTwo, setStepTwo] = useState(false)
 
     function handleSubmitGuess() {
-        console.log('submitting guess')
         // props.setCurrentGuess(props.value)
         props.updateGuessesList(guessesList => [...guessesList, props.value])
         props.setCurrentGuess(props.value)
