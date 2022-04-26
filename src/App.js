@@ -2,8 +2,8 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import * as CountriesAPI from './CountriesAPI.js'
 import DailyFlag from './components/DailyFlag/DailyFlag';
-import GuessesList from './components/GuessesList/GuessesList';
-import Form from './components/Form/Form';
+import GuessesMain from './components/GuessesMain/GuessesMain';
+import SelectSubmit from './components/SelectSubmit/SelectSubmit';
 import Share from './components/Share/Share'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -31,8 +31,6 @@ function App() {
         setFlagOfTheDay(flagsData[randomNumber])
     })
 
-    console.log('%cguessesList', 'color:dodgerblue', guessesList)
-
     return (
         <div className="App">
             <div className="inner-wrap">
@@ -44,18 +42,11 @@ function App() {
                     </Box>
                 </header>
                 <DailyFlag flagOfTheDay={flagOfTheDay} />
-                <h5>{randomNumber}</h5>
-                <GuessesList guessesList={guessesList} flagOfTheDay={flagOfTheDay} />
-                {/* <Form>
-                    <CountrySelect flagsData={flagsData} currentGuess={currentGuess} setCurrentGuess={setCurrentGuess} />
-                    <SubmitGuess 
-                        currentGuess={currentGuess} guessesList={guessesList} 
-                        updateGuessesList={updateGuessesList} amountOfGuesses={amountOfGuesses} />
-                </Form> */}
-                <Form
+                <GuessesMain 
+                    guessesList={guessesList} 
+                    flagOfTheDay={flagOfTheDay} />
+                <SelectSubmit
                     flagsData={flagsData} 
-                    // currentGuess={currentGuess} 
-                    // setCurrentGuess={setCurrentGuess} 
                     guessesList={guessesList} 
                     updateGuessesList={updateGuessesList} 
                     amountOfGuesses={amountOfGuesses}

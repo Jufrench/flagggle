@@ -4,7 +4,6 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 
 export default function CountrySelect(props) {
-//    const [currentGuess, setCurrentGuess] = useState('')
     const [test, setTest] = useState()
     const [filteredFlags, updateFilteredFlags] = useState()
 
@@ -16,9 +15,6 @@ export default function CountrySelect(props) {
         if (country) {
             props.setCurrentGuess(country)
         }
-
-        // props.setValue(country?.name)
-        // props.setInputValue(country?.name)
     }
 
     function filterFlagList(searchValue) {
