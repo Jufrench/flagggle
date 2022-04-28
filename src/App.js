@@ -13,7 +13,7 @@ function App() {
     const [flagOfTheDay, setFlagOfTheDay] = useState()
     const [guessesList, updateGuessesList] = useState([])
     const [randomNumber, getRandomNumber] = useState()
-    const amountOfGuesses = 3
+    const howManyGuesses = 3
     const [canCheckForMatch, setCanCheckForMatch] = useState(false)
     const [endOfGame, setEndOfGame] = useState(false)
     const [showModal, setShowModal] = useState(false)
@@ -29,13 +29,15 @@ function App() {
 
     useEffect(() => {
         setFlagOfTheDay(flagsData[randomNumber])
+        // console.log('%capp guesseslist:', 'color:tomato', guessesList);
     })
+
 
     return (
         <div className="App">
             <div className="inner-wrap">
                 <header>
-                    <Box sx={{ borderBottom: '2px solid #333', mb: '20px', padding: '6px' }}>
+                    <Box sx={{ borderBottom: '2px solid #333', mb: '4px', padding: '6px' }}>
                         <nav>
                             <h1>Flagggle</h1>
                         </nav>    
@@ -44,12 +46,13 @@ function App() {
                 <DailyFlag flagOfTheDay={flagOfTheDay} />
                 <GuessesMain 
                     guessesList={guessesList} 
-                    flagOfTheDay={flagOfTheDay} />
+                    flagOfTheDay={flagOfTheDay}
+                    howManyGuesses={howManyGuesses} />
                 <SelectSubmit
                     flagsData={flagsData} 
                     guessesList={guessesList} 
                     updateGuessesList={updateGuessesList} 
-                    amountOfGuesses={amountOfGuesses}
+                    howManyGuesses={howManyGuesses}
                     flagOfTheDay={flagOfTheDay}
                     setEndOfGame={setEndOfGame}
                     canCheckForMatch={canCheckForMatch}
@@ -59,7 +62,7 @@ function App() {
                 <Share
                     guessesList={guessesList}
                     endOfGame={endOfGame}
-                    amountOfGuesses={amountOfGuesses} />
+                    howManyGuesses={howManyGuesses} />
             </div>
         </div>
     );

@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 
 export default function GuessesMain(props) {
     const [fotdLatLong, setFotdLatLong] = useState(null)
-    const guessesAvailable = 3
+    // const guessesAvailable = 3
 
     // const [distance, setDistance] = useState(null)
     // const [percentCorrect, setPercentCorrect] = useState(null)
@@ -49,7 +49,7 @@ export default function GuessesMain(props) {
     return (
         <List
             guessesList={props.guessesList}
-            guessesAvailable={guessesAvailable}
+            howManyGuesses={props.howManyGuesses}
             fotdLatLong={fotdLatLong} />
     )
 }

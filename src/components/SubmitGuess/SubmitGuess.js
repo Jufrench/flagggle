@@ -22,9 +22,9 @@ export default function SubmitGuess(props) {
     function checkForGameOver() {
         if (props.flagOfTheDay.name === props.currentGuess.name) {
             handleEndOfGame(true)
-        } else if (props.guessesList.length < props.amountOfGuesses) {
-            console.log('keep going')
-        } else if (props.guessesList.length === props.amountOfGuesses) {
+        } else if (props.guessesList.length < props.howManyGuesses) {
+            // console.log('keep going')
+        } else if (props.guessesList.length === props.howManyGuesses) {
             handleEndOfGame(false)
         }
     }

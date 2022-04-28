@@ -10,8 +10,6 @@ export default function SelectSubmit(props) {
     const [distance, setDistance] = useState(null)
     const [percentCorrect, setPercentCorrect] = useState(null)
 
-    console.log('currentGuess:', currentGuess)
-
     // function calculateDistance(lat1, lon1, lat2, lon2) {
     //     var p = 0.017453292519943295    // Math.PI / 180
     //     var c = Math.cos
@@ -40,8 +38,20 @@ export default function SelectSubmit(props) {
     //     setPercentCorrect((lat2 + lon2) / (lat1 + lon1))
     // }
     function calculatePercentCorrect() {
+        console.log(currentGuess.latlng)
+        console.log(props.flagOfTheDay.latlng)
         const [lat1, lon1] = currentGuess.latlng
         const [lat2, lon2] = props.flagOfTheDay.latlng
+
+        const lats = lat1/lat2
+        const lons = lon1/lon2
+
+        let combined = lats + lons
+        if (combined < 1) {
+            combined = combined * -1
+        }
+
+        console.log('%ccombined:', 'color:dodgerblue', combined)
 
         return (lat2 + lon2) / (lat1 + lon1)
     }
@@ -54,7 +64,7 @@ export default function SelectSubmit(props) {
                 inputValue={inputValue}
                 setInputValue={setInputValue}
                 flagsData={props.flagsData} 
-                amountOfGuesses={props.amountOfGuesses}
+                howManyGuesses={props.howManyGuesses}
                 guessesList={props.guessesList}
                 currentGuess={currentGuess}
                 setCurrentGuess={setCurrentGuess}
@@ -72,7 +82,7 @@ export default function SelectSubmit(props) {
                 calculatePercentCorrect={calculatePercentCorrect}
                 guessesList={props.guessesList} 
                 updateGuessesList={props.updateGuessesList} 
-                amountOfGuesses={props.amountOfGuesses}
+                howManyGuesses={props.howManyGuesses}
                 flagOfTheDay={props.flagOfTheDay}
                 canCheckForMatch={props.canCheckForMatch}
                 setCanCheckForMatch={props.setCanCheckForMatch}

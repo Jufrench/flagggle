@@ -19,7 +19,7 @@ export default function GuessesList(props) {
         
 
         <Stack spacing={1} sx={{ mb: '10px' }}>
-            {Array(props.guessesAvailable).fill(0).map((_, i) => {
+            {Array(props.howManyGuesses).fill(0).map((_, i) => {
                 return (
                     <Item
                         key={i} 
